@@ -2,7 +2,7 @@
 
 This repository is the official implementation of [Transferability Metrics for Object Detection](https://arxiv.org/abs/todo). 
 
-![](agg_logme.png | width=100)
+![](images/agg_logme.png)
 
 ## Requirements
 
