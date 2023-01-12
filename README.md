@@ -56,10 +56,10 @@ Code for generating MNIST like object detection datasets can be found in **add S
 
 Code for generating bootstrapped datasets from Open Images can be found in **create_oi_datasets.ipynb**
 
-Other datasets can be donwloaded here : VOC[http://host.robots.ox.ac.uk/pascal/VOC/], CHESS[https://public.roboflow.com/object-detection/chess-full], 
-BCCD[https://www.tensorflow.org/datasets/catalog/bccd], Global Wheat[https://www.kaggle.com/c/global-wheat-detection] and Open Images[https://storage.googleapis.com/openimages/web/index.html].
+Other datasets can be donwloaded here : [VOC](http://host.robots.ox.ac.uk/pascal/VOC/), [CHESS](https://public.roboflow.com/object-detection/chess-full), 
+[BCCD](https://www.tensorflow.org/datasets/catalog/bccd), [Global Wheat](https://www.kaggle.com/c/global-wheat-detection) and Open [Images](https://storage.googleapis.com/openimages/web/index.html).
 
-**data_load.py** : scripts with custom classes for different OD Datasets. COCO-fashion with a json containing all annotations, VOC with an xml annotation file per image, Global Wheat-fashion with a csv containing all annotations and MNIST-like with one text file per image.
+**[data_load.py](https://github.com/dataiku-research/transferability_metrics_for_object_detection/blob/main/data_load.py)** : scripts with custom classes for different OD Datasets. COCO-fashion with a json containing all annotations, VOC with an xml annotation file per image, Global Wheat-fashion with a csv containing all annotations and MNIST-like with one text file per image.
 
 ## Results
 
