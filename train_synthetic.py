@@ -53,7 +53,7 @@ def build_model(dataset = 'MNIST', trainable_backbone_layers = 5, source_dataset
         faster_model.roi_heads.box_predictor = FastRCNNPredictor(
         in_features, num_classes_dict[source_dataset]) #As we load the weights from the pretrained model, head needs to have the same shape
 
-        file_path =  f"/data.nfs/AUTO_TL_OD/ft_models_p6000/ft_models/5_layers/{source_dataset}/{source_dataset}iter_0.ptch"
+        file_path =  f"/path/to/model/ft_models/5_layers/{source_dataset}/{source_dataset}iter_0.ptch"
         print('Loading weights from ' , source_dataset)
         param_dict_base = torch.load(file_path)
         faster_model.load_state_dict(param_dict_base) #Load weights of the pretrained model
@@ -72,24 +72,24 @@ def train(model, dataset = 'MNIST', size =(128,128), num_epochs = 5, batch_size 
     device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
     
     if dataset == 'MNIST':
-        dataset_train = MNIST_Base(root = '/data.nfs/AUTO_TL_OD/data/mnist_detection/train', size = size)
-        dataset_test = MNIST_Base(root ='/data.nfs/AUTO_TL_OD/data/mnist_detection/test', size = size)
+        dataset_train = MNIST_Base(root = '/path/to/data/mnist_detection/train', size = size)
+        dataset_test = MNIST_Base(root ='/path/to/data/mnist_detection/test', size = size)
 
     if dataset == 'KMNIST':
-        dataset_train = MNIST_Base(root = '/data.nfs/AUTO_TL_OD/data/kmnist_detection/train', size = size)
-        dataset_test = MNIST_Base(root ='/data.nfs/AUTO_TL_OD/data/kmnist_detection/test', size = size)
+        dataset_train = MNIST_Base(root = '/path/to/data/kmnist_detection/train', size = size)
+        dataset_test = MNIST_Base(root ='/path/to/data/kmnist_detection/test', size = size)
 
     if dataset == 'EMNIST':
-        dataset_train = MNIST_Base(root = '/data.nfs/AUTO_TL_OD/data/emnist_detection/train', size = size)
-        dataset_test = MNIST_Base(root = '/data.nfs/AUTO_TL_OD/data/emnist_detection/test', size = size)
+        dataset_train = MNIST_Base(root = '/path/to/data/emnist_detection/train', size = size)
+        dataset_test = MNIST_Base(root = '/path/to/data/emnist_detection/test', size = size)
 
     if dataset == 'FASHION_MNIST':
-        dataset_train = MNIST_Base(root = '/data.nfs/AUTO_TL_OD/data/fashionmnist_detection/train', size = size)
-        dataset_test = MNIST_Base(root ='/data.nfs/AUTO_TL_OD/data/fashionmnist_detection/test', size = size)
+        dataset_train = MNIST_Base(root = '/path/to/data/fashionmnist_detection/train', size = size)
+        dataset_test = MNIST_Base(root ='/path/to/data/fashionmnist_detection/test', size = size)
 
     if dataset == 'USPS':
-        dataset_train = MNIST_Base(root = '/data.nfs/AUTO_TL_OD/data/usps_detection/train', size = size)
-        dataset_test = MNIST_Base(root ='/data.nfs/AUTO_TL_OD/data/usps_detection/test', size = size)
+        dataset_train = MNIST_Base(root = '/path/to/data/usps_detection/train', size = size)
+        dataset_test = MNIST_Base(root ='/path/to/data/usps_detection/test', size = size)
 
     # define training and validation data loaders
     data_loader_train = torch.utils.data.DataLoader(
@@ -190,7 +190,7 @@ def train(dataset = 'MNIST', seed = 6728131, vers = 0, n_epochs = [5],  transfer
 
     times = []
 
-    output_dir = '/data.nfs/AUTO_TL_OD/'
+    output_dir = 'path/to/dir'
     dir = output_dir + "ft_models/base/" + dataset + '/'
 
     # Load first and train only head (first step)

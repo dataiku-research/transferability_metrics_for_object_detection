@@ -73,7 +73,7 @@ from references.engine import train_one_epoch, evaluate
 from references import utils
 
 
-def train(gpu, model, dataset, mp_args, batch_size = 2, num_epochs = 30, lr = 0.0001, output_dir = '/data.nfs/AUTO_TL_OD/ft_model_from_oi/dataset_1/', vers = 0):
+def train(gpu, model, dataset, mp_args, batch_size = 2, num_epochs = 30, lr = 0.0001, output_dir = None, vers = 0):
 
     rank = mp_args.nr * mp_args.gpus + gpu	#Rank of the process over all processes   
 
@@ -275,7 +275,7 @@ def main():
         print('Build model for dataset : ', i+1 )
         model = build_model(transformer= True, pretrained= True, trainable_backbone_layers= 0)
         dataset = VOC_OI(data_dir + f'dataset_{i +  1}/', classes_list[i], size = (800, 800))
-        output_dir = f'/data.nfs/AUTO_TL_OD/ft_model_from_oi/dataset_{i+1}/'
+        output_dir = f'/path/to/model/ft_model_from_oi/dataset_{i+1}/'
 
         train_args = (model, dataset, mp_args, 3, 30, 0.0001, output_dir, 20)
 

@@ -290,9 +290,9 @@ if __name__ == "__main__":
     print("Extract features for bootstrapped datasets from COCO")
     for i in range(1,21):
 
-        dataset = VOC_OI('/data.nfs/AUTO_TL_OD/Export/' + f'dataset_{i}/', classes_list[i -1], size = (800, 800))
+        dataset = VOC_OI('/path/to/data/' + f'dataset_{i}/', classes_list[i -1], size = (800, 800))
 
-        extract_features(dataset, transformer = True, output_dir = f"/data.nfs/AUTO_TL_OD/extracted_feats/vit/dataset_{i}/", 
+        extract_features(dataset, transformer = True, output_dir = f"/path/to/features/vit/dataset_{i}/", 
                          size = (800,800), backbone_layers= [4], fpn_layers= [0,1,2,3], fpn_ms= True, penultimate= True)
-        assemble_batches(dataset_dir=f"/data.nfs/AUTO_TL_OD/extracted_feats/vit/dataset_{i}/", 
+        assemble_batches(dataset_dir=f"/path/to/features/vit/dataset_{i}/", 
                          backbone_layers= [4], fpn_layers=  [0,1,2,3], fpn_ms= True, penultimate= True)

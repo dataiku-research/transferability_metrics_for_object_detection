@@ -34,7 +34,7 @@ def build_model_eval(dataset_name='BCCD', dataset_source = 'COCO'):
         faster_model.roi_heads.box_predictor = FastRCNNPredictor(
         in_features, num_classes_dict[dataset_source]) #As we load the weights from the pretrained model, head needs to have the same shape
 
-        file_path =  f"/data.nfs/AUTO_TL_OD/ft_models_p6000/ft_models/5_layers/{dataset_source}/{dataset_source}iter_0.ptch"
+        file_path =  f"/path/to/model/ft_models/5_layers/{dataset_source}/{dataset_source}iter_0.ptch"
         param_dict_base = torch.load(file_path)
         print('Loading weights from ' , dataset_source)
         faster_model.load_state_dict(param_dict_base) #Load weights of the pretrained model
@@ -77,7 +77,7 @@ class FeatureExtractor(nn.Module):
 # as it needs more memory.
 
 
-def extract_features(dataset_name='BCCD',dataset_source = 'COCO', backbone_layers = [0,1,2,3,4], 
+def extract_features(dataset_name='BCCD',dataset_source = 'COCO', data_dir = None, backbone_layers = [0,1,2,3,4], 
                      fpn_layers = [0,1,2,3], fpn_ms = True, fc_7 = False,
                      batch_size=4, subsample = 1000, size=(800, 800), 
                      output_dir = None):
@@ -86,7 +86,6 @@ def extract_features(dataset_name='BCCD',dataset_source = 'COCO', backbone_layer
 
     model = build_model_eval(dataset_name=dataset_name, dataset_source= dataset_source).to(device)
 
-    data_dir = '/data.nfs/smaggio/AUTO_TL_OD/'
     if dataset_name == 'BCCD':
         dataset = VOC_Base(data_dir + 'BCCD/BCCD', image_set='trainval',
                            size=size, target_transform=BCCD_label_encoder, transforms=None)
@@ -321,17 +320,17 @@ if __name__ == "__main__":
     synth_datasets = ['MNIST', 'EMNIST', 'KMNIST', 'FASHION_MNIST', 'USPS']
     for dataset_source, dataset_target in itertools.permutations(synth_datasets, 2):
         print('Extract features for ', dataset_target, 'from ', dataset_source)
-        extract_features(dataset_target, dataset_source, output_dir = f"/data.nfs/AUTO_TL_OD/extracted_feats/{dataset_target}/from_{dataset_source}/", 
+        extract_features(dataset_target, dataset_source, output_dir = f"/path/to/features{dataset_target}/from_{dataset_source}/", 
                          size = (800,800), backbone_layers= [4], fpn_layers= [0,1,2,3], fpn_ms= True, fc_7= True)
-        assemble_batches(dataset_dir=f"/data.nfs/AUTO_TL_OD/extracted_feats/{dataset_target}/from_{dataset_source}/", 
+        assemble_batches(dataset_dir=f"/path/to/features{dataset_target}/from_{dataset_source}/", 
                          backbone_layers= [4], fpn_layers=  [0,1,2,3], fpn_ms= True, fc_7= True)
 
 
     for dataset in ['BCCD', 'CHESS', 'VOC', 'Open_Images', 'Global_Wheat']:
         print('Extract features for ', dataset)
-        extract_features(dataset, dataset_source = 'COCO', output_dir = f"/data.nfs/AUTO_TL_OD/extracted_feats/{dataset}/", 
+        extract_features(dataset, dataset_source = 'COCO', output_dir = f"/path/to/features{dataset}/", 
                          size = (800,800), backbone_layers= [4], fpn_layers= [0,1,2,3], fpn_ms= True, fc_7= True)
-        assemble_batches(dataset_dir=f"/data.nfs/AUTO_TL_OD/extracted_feats/{dataset}/", 
+        assemble_batches(dataset_dir=f"/path/to/features{dataset}/", 
                          backbone_layers= [4], fpn_layers=  [0,1,2,3], fpn_ms= True, fc_7= True)
 
   

@@ -231,7 +231,7 @@ def main():
         param_dict_base = model.state_dict()
 
 
-        output_dir = '/data.nfs/AUTO_TL_OD/'
+        output_dir = 'path/to/model'
         dir = output_dir + "ft_models/" + dataset + '/'
 
 
