@@ -73,4 +73,4 @@ Our model achieves the following performance on :
 ## Contributing
 
 
-Our implementation of TransRate and regularized H-Score have been merged in the [Transfer-Learning Library]((https://github.com/thuml/Transfer-Learning-Library)). For other transferability metrics we've used their implementation.
+Our implementations of TransRate and regularized H-Score have been merged in the [Transfer-Learning Library](https://github.com/thuml/Transfer-Learning-Library). For other transferability metrics we've used their implementation.
