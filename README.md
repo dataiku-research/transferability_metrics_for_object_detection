@@ -67,7 +67,7 @@ Our model achieves the following performance on :
 
 ### Correlation between mAP and transferability metrics for different tasks
 
-![](images/summary_table)
+![](images/summary_table.png)
 
 
 ## Contributing
