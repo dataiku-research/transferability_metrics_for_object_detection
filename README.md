@@ -29,11 +29,11 @@ The parameters used to generate MNIST-like datasets are as in the following comm
 
 To train the model(s) on source datasets and transfer them to target datasets as described in the paper, we use :
 
+**[train_synthetic.py](https://github.com/dataiku-research/transferability_metrics_for_object_detection/blob/main/train_synthetic.py)** : script to train model on synthetic *MNIST OD Datasets. It can be used in for transfer learning or to simulate pretrained models.
+
 **[train_real_1.py](https://github.com/dataiku-research/transferability_metrics_for_object_detection/blob/main/train_real_1.py)** : script to train model on *Real 1* datasets (CHESS, VOC, ...). For each training is save the model (.ptch), the two pickles containing the train and eval loggers and a summary plot of the training.
 
 **[train_real_2.py](https://github.com/dataiku-research/transferability_metrics_for_object_detection/blob/main/train_real_2.py)** : script to train model on *Real 2* datasets (boostrapped datasets from open_images). For each training the script save the model (.ptch), the two pickles containing the train and eval loggers and a summary plot of the training. This script support multiprocessing on multiple gpus and multiple machines. It can be used to train Fatser-RCNN with both ResNet and Visual Transformer (ViT) backbone.
-
-**[train_synthetic.py](https://github.com/dataiku-research/transferability_metrics_for_object_detection/blob/main/train_synthetic.py)** : script to train model on synthetic *MNIST OD Datasets. It can be used in for transfer learning or to simulate pretrained models.
 
 The previous training scripts also evaluate the final mean Average Precision (mAP) for each trained or transferred model. The evaluation log containing various performance metrics (mAP_05_95, mAP_50, AR_1, AR_10) is stored in a pickle, then loaded in the results notebooks.
 
