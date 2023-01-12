@@ -66,8 +66,8 @@ Other datasets can be donwloaded here : [VOC](http://host.robots.ox.ac.uk/pascal
 Our model achieves the following performance on :
 
 ### Correlation between mAP and transferability metrics for different tasks
-
-$$\begin{table*}[h!]
+```{=latex}
+\begin{table*}[h!]
     \centering
     \begin{tabular}{lrr|rr|rrrrr}
         \toprule
@@ -85,7 +85,8 @@ $$\begin{table*}[h!]
         \end{tabular}
     \caption{Correlation between mAP and transferability metrics for different tasks. For synthetic datasets the correlation is the mean of correlations}
     \label{tab:summary}
-\end{table*}$$
+\end{table*}
+```
 
 
 
