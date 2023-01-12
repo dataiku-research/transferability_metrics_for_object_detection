@@ -66,33 +66,11 @@ Other datasets can be donwloaded here : [VOC](http://host.robots.ox.ac.uk/pascal
 Our model achieves the following performance on :
 
 ### Correlation between mAP and transferability metrics for different tasks
-```{=latex}
-\begin{table*}[h!]
-    \centering
-    \begin{tabular}{lrr|rr|rrrrr}
-        \toprule
-        {} &     & &  \multicolumn{2}{c|}{Global Features} & \multicolumn{5}{c}{Local Features}\\
-        \midrule
-        {} &     & & Best Metric & Score & LogME & TLogME & $\mathcal{H}$ & $\mathcal{H}_{\alpha}$ & $\transrate$  \\
-         Datasets & Task    & Backbone &  &             &         &          &           \\
-         \midrule
-         Synthetic & Source & ResNet    & $\mathcal{H}$  &      0.42 &    \textbf{0.50} &       \textbf{0.50} &    0.36 &     0.49 &      0.21 \\
-         Synthetic & Target & ResNet     & $\mathcal{H}_\alpha$  &      0.41 &    0.32 &        0.35 &    -0.22 &     \textbf{0.42} &      0.12 \\
-         Real 1 & Target  & ResNet   & $\logme$    &      0.00 &  0.10 &       \textbf{0.47} &   -0.01 &    -0.03 &     -0.68 \\
-         Real 2  & Target   & ResNet  &$\totlogme$    &       0.33 &     0.15 &        0.31 &   -0.20 &    -0.24 &      \textbf{0.43} \\
-         Real 2 & Target & ViT  & $\transrate$      &     0.54 &  \textbf{0.56}  &       \textbf{0.56} &    0.04 &     0.04 &      0.50 \\
-         \bottomrule
-        \end{tabular}
-    \caption{Correlation between mAP and transferability metrics for different tasks. For synthetic datasets the correlation is the mean of correlations}
-    \label{tab:summary}
-\end{table*}
-```
 
-
-
->📋  Include a table of results from your paper, and link back to the leaderboard for clarity and context. If your main result is a figure, include that figure and link to the command or notebook to reproduce it. 
+![](images/summary_table)
 
 
 ## Contributing
 
-Here we could redirect to the code of [thuml](https://github.com/thuml/Transfer-Learning-Library) and explain we added h-score_reg and transrate there. 
+
+Our implementation of TransRate and regularized H-Score have been merged in the [Transfer-Learning Library]((https://github.com/thuml/Transfer-Learning-Library)). For other transferability metrics we've used their implementation.
