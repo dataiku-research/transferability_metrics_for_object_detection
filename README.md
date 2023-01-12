@@ -72,3 +72,8 @@ The file **[plot_utils.py](https://github.com/dataiku-research/transferability_m
 ## Contribution to open source libraries
 
 Our implementations of TransRate and regularized H-Score have been merged in the [Transfer-Learning Library](https://github.com/thuml/Transfer-Learning-Library). For other transferability metrics we've used their implementation.
+
+## Hardware
+
+GPUs: 2 GeForce GTX 970 4GB + 1 Quadro P6000 24 GB
+
